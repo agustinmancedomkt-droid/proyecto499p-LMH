@@ -1,0 +1,170 @@
+/* =================== ENCABEZADO DE PÁGINA ================== */
+
+header {
+  background-color: #b40000;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+.logo {
+  margin-left: auto;
+  width: 4rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav li {
+  margin-left: 0;
+}
+
+nav a {
+  display: block;
+  padding: 20px 30px;
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover {
+  background-color: red;
+}
+
+/* =================== CUERPO DE LA PÁGINA ================== */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 25px auto;
+    background-color: transparent;
+    padding: 0;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.destacado {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin: 15px auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 15px auto;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #d9d9d9;
+}
+
+form {
+    width: 100%;
+    max-width: none;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ====================== PIE DE PÁGINA ====================== */
+
+footer {
+  background-color: black;
+  color: red;
+  text-align: center;
+  padding: 20px;
+  border-top: 3px solid #b40000;
+}
+
+.imgpie {
+  width: 25px;
+  margin-right: 15px;
+}
+
+div {
+  display: block;
+  width: 100%;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer p {
+  font-style: normal;
+}
+
+
+.menu{
+display: flex;
+list-style-type: none;
+padding: 0;
+margin: 0;
+justify-content: center;
+flex-wrap: wrap;
+background-color:black;
+border-bottom: 3px solid red;
+}
+
+.menu li {
+  color:red;
+  font-size: 16px;
+  list-style:none;
+  margin-right:0;
+  cursor: pointer;
+  }
+
+  .menulia{
+    color:red;
+    text-decoration:none;
+   }  
+
+   .menu li a :hover {
+   color:red;
+   text-decoration: underline;
+   }  
+
+
+iframe {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    margin: 15px auto;
+}
