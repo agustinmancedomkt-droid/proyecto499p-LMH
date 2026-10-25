@@ -235,11 +235,6 @@ footer {
   border-top: 1px solid #333;
 }
 
-footer::after {
-  content: "Sitio desarrollado con HTML5 y CSS3";
-  font-size: .9rem;
-}
-
 .imgpie {
   width: 25px;
   margin-right: 15px;
