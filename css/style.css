@@ -1,312 +1,463 @@
-/* =================== BASE ================== */
-
+/* =================== ESTILOS GENERALES ================== */
+/* Estilo oscuro con rojo y amarillo, usando Bootstrap para el menú, el carrusel, las tablas y el formulario */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #111;
-  color: #f5f5f5;
-  line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #111111;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
-a {
-  color: inherit;
+/* =================== MENÚ DE NAVEGACIÓN ================== */
+/* La barra roja queda fija arriba de todo, aunque en el HTML esté después del header */
+nav.menu {
+    order: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    gap: 20px;
+    padding: 16px max(24px, calc((100% - 1100px) / 2 + 24px));
+    background-color: #b00020;
+    border-bottom: 0;
+}
+
+/* Marca "FERRARI 499P" con el escudo amarillo */
+nav.menu::before {
+    content: "FERRARI 499P";
+    display: block;
+    min-height: 40px;
+    line-height: 40px;
+    padding-left: 50px;
+    font-weight: 700;
+    color: white;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23ffd21c'/%3E%3Ctext x='20' y='27' font-family='Arial' font-size='20' font-weight='900' text-anchor='middle' fill='%23111'%3EF%3C/text%3E%3C/svg%3E") no-repeat left center / 40px 40px;
+}
+
+/* Se acomodan los links a la derecha (pisa las clases de centrado del HTML) */
+.menu .container-fluid {
+    flex: 1;
+    padding: 0;
+    justify-content: flex-end !important;
+}
+
+.menu .navbar-collapse {
+    justify-content: flex-end !important;
+}
+
+.menu .navbar-nav {
+    gap: 16px;
+}
+
+.menu .nav-link {
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu .nav-link:hover {
+    color: #b00020;
+    background-color: white;
+}
+
+.menu .nav-link.active {
+    color: #111111;
+    background-color: #ffd21c;
+}
+
+.menu .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* =================== ENCABEZADO DE PÁGINA ================== */
-
-/* El título (header) se muestra como portada, debajo de la barra de navegación */
+/* El título se muestra como portada, debajo de la barra de navegación */
 header {
-  order: 1;
-  min-height: 52vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  padding: 60px max(24px, calc((100% - 1100px) / 2 + 24px));
-  background: linear-gradient(120deg, #1b1b1b, #3d000b);
-  color: #f5f5f5;
+    order: 1;
+    min-height: 52vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 60px max(24px, calc((100% - 1100px) / 2 + 24px));
+    background: linear-gradient(120deg, #1b1b1b, #3d000b);
+    color: #f5f5f5;
 }
 
 header::before {
-  content: "LE MANS HYPERCAR";
-  display: inline-block;
-  background-color: #ffd21c;
-  color: #111;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-weight: 700;
-  margin-bottom: 12px;
+    content: "LE MANS HYPERCAR";
+    display: inline-block;
+    background-color: #ffd21c;
+    color: #111111;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 header h1 {
-  margin: 0;
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
-  line-height: 1;
+    margin: 0;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    line-height: 1;
+    font-weight: bold;
 }
 
 header p {
-  margin: 16px 0 0;
-  max-width: 700px;
-  font-size: 1.15rem;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 40%;
-}
-
-.logo {
-  margin-left: auto;
-  width: 4rem;
-}
-
-/* Barra de navegación roja fija arriba de todo */
-nav {
-  order: 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 16px max(24px, calc((100% - 1100px) / 2 + 24px));
-  background-color: #b00020;
-}
-
-/* Marca "FERRARI 499P" con escudo amarillo */
-nav::before {
-  content: "FERRARI 499P";
-  display: block;
-  min-height: 40px;
-  line-height: 40px;
-  padding-left: 50px;
-  font-weight: 700;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23ffd21c'/%3E%3Ctext x='20' y='27' font-family='Arial' font-size='20' font-weight='900' text-anchor='middle' fill='%23111'%3EF%3C/text%3E%3C/svg%3E") no-repeat left center / 40px 40px;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  gap: 16px;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
-
-nav li {
-  margin-left: 0;
-}
-
-nav a {
-  display: block;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-}
-
-nav a:hover {
-  background-color: #fff;
-  color: #b00020;
+    margin: 16px 0 0;
+    max-width: 700px;
+    font-size: 1.15rem;
 }
 
 /* =================== CUERPO DE LA PÁGINA ================== */
-
 main {
-  order: 2;
-  flex: 1;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 24px;
-  background-color: transparent;
+    order: 2;
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+/* Cada sección es una tarjeta oscura */
+.seccion {
+    background-color: #1f1f1f;
+    margin-bottom: 24px;
+    padding: 28px;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    animation: aparecer 0.6s ease both;
+}
+
+.seccion h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #f5f5f5;
+    font-size: 2rem;
 }
 
 p {
-  font-size: 1rem;
-  margin: 0 0 12px;
-}
-
-/* Bloques de contenido: tarjetas oscuras (pisan los estilos inline del HTML) */
-main > div[style] {
-  background-color: #1f1f1f !important;
-  border: 1px solid #333 !important;
-  border-radius: 12px !important;
-  padding: 28px !important;
-  margin-bottom: 24px !important;
-}
-
-main > div[style] h2 {
-  margin: 0 0 16px !important;
-  color: #f5f5f5 !important;
-  font-size: 2rem;
+    font-size: 1rem;
+    margin: 0 0 12px;
 }
 
 .destacado {
-  display: block;
-  width: 100%;
-  max-width: none;
-  max-height: 560px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 16px 0;
+    display: block;
+    width: 100%;
+    max-width: none;
+    max-height: 560px;
+    object-fit: cover;
+    margin: 16px 0;
+    border-radius: 12px;
 }
 
-table {
-  border-collapse: collapse;
-  margin: 15px auto 0;
-  width: 100%;
-  background-color: #1f1f1f;
+/* =================== CARRUSEL ================== */
+.carrusel-proyecto {
+    max-width: none;
+    margin: 20px 0 5px;
+    background-color: #111111;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-th, td {
-  border: 1px solid #444;
-  padding: 12px;
-  text-align: left;
+.carrusel-proyecto .carousel-item img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
 }
 
-th {
-  background-color: #b00020;
-  color: #fff;
+.carrusel-proyecto .carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    border-left: 4px solid #ffd21c;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-align: left;
 }
 
-form {
-  width: 100%;
-  max-width: 700px;
-  margin: 20px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.carrusel-proyecto .carousel-caption h5 {
+    color: #ffd21c;
+    margin-bottom: 3px;
 }
 
-label {
-  font-weight: 700;
+.carrusel-proyecto .carousel-caption p {
+    margin-bottom: 3px;
 }
 
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 0;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  font-family: inherit;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background-color: #181818;
-  color: #fff;
+/* Imágenes verticales: se ven completas sobre un fondo desenfocado de la misma foto */
+.carrusel-proyecto .carousel-item.vertical {
+    overflow: hidden;
+    background-color: #111111;
 }
 
-input[type="submit"] {
-  width: max-content;
-  padding: 12px 18px;
-  border: 0;
-  background-color: #ffd21c;
-  color: #111;
-  cursor: pointer;
-  font-weight: bold;
+.carrusel-proyecto .carousel-item.vertical::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--fondo);
+    background-size: cover;
+    background-position: center;
+    filter: blur(22px) brightness(0.45);
+    transform: scale(1.15);
+}
+
+.carrusel-proyecto .carousel-item.vertical img {
+    position: relative;
+    object-fit: contain;
+}
+
+/* Flechas bien visibles */
+.carrusel-proyecto .carousel-control-prev-icon,
+.carrusel-proyecto .carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(176, 0, 32, 0.9);
+    border-radius: 50%;
+    background-size: 55%;
+}
+
+.carrusel-proyecto .carousel-indicators [data-bs-target] {
+    background-color: #ffd21c;
+}
+
+/* =================== TABLAS ================== */
+.table {
+    --bs-table-color: #f5f5f5;
+    --bs-table-bg: #1f1f1f;
+    --bs-table-striped-color: #f5f5f5;
+    --bs-table-striped-bg: #272727;
+    --bs-table-hover-color: #ffffff;
+    --bs-table-hover-bg: #3a0a12;
+    --bs-table-border-color: #444444;
+    margin: 15px auto 0;
+}
+
+/* Encabezados y primera columna en rojo */
+.table thead th,
+.table tbody th {
+    --bs-table-bg: #b00020;
+    --bs-table-color: #ffffff;
+    background-color: #b00020;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+}
+
+.nota {
+    color: #bbbbbb;
+    font-size: 0.9rem;
+}
+
+/* =================== VIDEO ================== */
+.video-proyecto {
+    max-width: none;
+    margin: 20px 0 0;
+}
+
+.video-proyecto iframe {
+    border: 0;
+    border-radius: 12px;
+}
+
+/* =================== FORMULARIO ================== */
+.formulario {
+    max-width: 700px;
+    margin: 20px 0 0;
+}
+
+.form-label {
+    font-weight: 700;
+}
+
+.formulario .form-control,
+.formulario .form-select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #555555;
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.formulario .form-control:focus,
+.formulario .form-select:focus {
+    background-color: #181818;
+    color: #ffffff;
+    border-color: #ffd21c;
+    box-shadow: 0 0 0 0.2rem rgba(255, 210, 28, 0.25);
+}
+
+/* Flechita blanca del select para que se vea sobre el fondo oscuro */
+.formulario .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.btn-danger {
+    background-color: #ffd21c;
+    border-color: #ffd21c;
+    color: #111111;
+    font-weight: bold;
+    padding: 12px 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #ffe066;
+    border-color: #ffe066;
+    color: #111111;
+    transform: translateY(-2px);
 }
 
 /* ====================== PIE DE PÁGINA ====================== */
-
 footer {
-  order: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 24px max(24px, calc((100% - 1100px) / 2 + 24px));
-  background-color: #090909;
-  color: #bbb;
-  text-align: left;
-  border-top: 1px solid #333;
-}
-
-.imgpie {
-  width: 25px;
-  margin-right: 15px;
-}
-
-footer a {
-  text-decoration: none;
+    order: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 24px max(24px, calc((100% - 1100px) / 2 + 24px));
+    background-color: #090909;
+    color: #bbbbbb;
+    text-align: left;
+    border-top: 1px solid #333333;
 }
 
 footer p {
-  margin: 0;
-  font-size: .9rem;
-  font-style: normal;
+    margin: 0;
+    font-size: 0.9rem;
 }
 
-/* ====================== MENÚ ====================== */
-
-.menu {
-  display: flex;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  background-color: transparent;
-  border-bottom: 0;
+footer a {
+    color: #ffd21c;
+    text-decoration: none;
 }
 
-.menu li {
-  color: white;
-  font-size: 16px;
-  list-style: none;
-  margin-right: 0;
-  cursor: pointer;
+footer a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
-.menulia {
-  color: white;
-  text-decoration: none;
+/* Animación sencilla tomada como práctica de la unidad de animaciones */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* ====================== VIDEO ====================== */
-
-iframe {
-  display: block;
-  width: 100%;
-  max-width: none;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 12px;
-  margin: 20px 0 0;
+/* ====================== ADAPTACIÓN A PANTALLAS ====================== */
+@media (max-width: 991px) {
+    .menu .navbar-nav {
+        gap: 4px;
+        padding-top: 10px;
+    }
 }
 
-/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+    main {
+        padding: 30px 14px;
+    }
 
-@media (max-width: 700px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .seccion {
+        padding: 18px;
+    }
 
-  nav ul {
-    justify-content: flex-start;
-  }
+    .seccion h2 {
+        font-size: 1.6rem;
+    }
 
-  header {
-    min-height: 42vh;
-  }
+    header {
+        min-height: 42vh;
+    }
 
-  footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .carrusel-proyecto .carousel-item img {
+        height: 280px;
+    }
+
+    .carrusel-proyecto .carousel-caption {
+        padding: 4px 8px;
+    }
+
+    .carrusel-proyecto .carousel-caption p {
+        display: none;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.4rem;
+    }
+
+    .carrusel-proyecto .carousel-item img {
+        height: 220px;
+    }
+}
+
+/* Respeta la preferencia del usuario de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =================== GALERIA / VIDEO LOCAL ================== */
+.galeria {
+    margin: 20px 0;
+}
+
+.galeria img {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border: 1px solid #333333;
+    border-radius: 12px;
+}
+
+.video-local {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.video-local img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.video-local span {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 14px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(220, 0, 0, 0.85);
+    border-radius: 0 0 12px 12px;
 }
